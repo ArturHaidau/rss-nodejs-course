@@ -1,0 +1,10 @@
+{
+  "name": "nodejs-application",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Artur Haidau",
+  "license": "ISC",
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}

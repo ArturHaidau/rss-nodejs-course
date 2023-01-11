@@ -1,12 +1,14 @@
-# README
-
-## This branch contains solution for Node.js "Network communication: HTTP" assignment.
+# This branch contains solution for Node.js "Network communication: HTTP" assignment
 
 ## Technical requirements
 - Node.js 18
 
 ## Running application
 - Add `.env` file with a filled in environment variable `PORT`
+- Install required dependencies:
+  ```
+  npm install
+  ```
 - There are 3 different modes of the running application:
   - To run the application in the `dev` mode you have to execute the following command in the console:
     ```

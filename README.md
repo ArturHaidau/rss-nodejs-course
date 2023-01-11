@@ -1,6 +1,4 @@
-# README
-
-## This branch contains solution for Node.js Application assignment.
+# This branch contains solution for Node.js Application assignment
 
 ## Technical requirements
 - Node.js 18

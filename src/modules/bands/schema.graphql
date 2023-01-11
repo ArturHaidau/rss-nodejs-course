@@ -1,0 +1,40 @@
+type Member {
+    artist: String
+    instrument: String
+    years: [String]!
+}
+
+input MemberInput {
+    artist: String
+    instrument: String
+    years: [String]!
+}
+
+type Band {
+    id: ID!
+    name: String
+    origin: String
+    members: [Member]
+    website: String
+    genres: [Genre]
+}
+
+extend type Query {
+    band(id: ID!): Band
+    bands(limit: Int!, offset: Int!): [Band]
+}
+
+extend type Mutation {
+    deleteBand(id: ID!): Message
+    createBand(name: String!,
+        origin: String!,
+        members: [MemberInput]!,
+        website: String!,
+        genreIds: [String]!): Band
+    updateBand(id: ID!,
+        name: String,
+        origin: String,
+        members: [MemberInput],
+        website: String,
+        genresIds: [String]): Band
+}

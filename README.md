@@ -1,6 +1,4 @@
-# README
-
-## This branch contains solution for Node.js "Network communication: WebSocket" assignment.
+# This branch contains solution for Node.js "Network communication: WebSocket" assignment
 
 ## Technical requirements
 - Node.js 18
@@ -8,6 +6,10 @@
 
 ## Running application
 - Add a `.env` file with following environment variables: `HTTP_SERVER_PORT`, `WEBSOCKET_SERVER_PORT`
+- Install required dependencies:
+  ```
+  npm install
+  ```
 - To run the application you have to execute the following command:
   ```
   npm start

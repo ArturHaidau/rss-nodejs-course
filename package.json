@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-home-library",
+  "version": "0.0.1",
+  "author": "Artur Haidau",
+  "private": true,
+  "scripts": {
+    "scan:db": "docker scan home-library-database",
+    "scan:service": "docker scan home-library-service",
+    "scan": "npm run scan:db & npm run scan:service",
+    "build": "docker compose up"
+  }
+}

@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  database:
+    container_name: database
+    image: home-library-database
+    build: ./database
+    restart: on-failure
+    tty: true
+    environment:
+      - POSTGRES_USER=${PSQL_USER}
+      - POSTGRES_PASSWORD=${PSQL_PASSWORD}
+      - POSTGRES_DB=${PSQL_DB}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - pg_logs:/logs:z
+    ports:
+      - ${PSQL_PORT}:${DATABASE_CONTAINER_LOCAL_PORT}
+    networks:
+      - home-library-network
+  service:
+    container_name: service
+    image: home-library-service
+    build: ./home-library-service
+    tty: true
+    restart: on-failure
+    volumes:
+      - ./home-library-service/src:/usr/src/app/src
+      - ./home-library-service/.env:/usr/src/app/.env
+      - service_logs:/usr/src/app/logs:z
+    ports:
+      - ${SERVICE_PORT}:${SERVICE_CONTAINER_LOCAL_PORT}
+    depends_on:
+      - database
+    networks:
+      - home-library-network
+
+volumes:
+  pg_data:
+  pg_logs:
+  service_logs:
+
+networks:
+  home-library-network:
+    driver: bridge
